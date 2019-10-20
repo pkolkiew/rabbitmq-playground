@@ -5,8 +5,8 @@ import org.springframework.messaging.MessageChannel;
 
 public interface MessageSource {
 
-    String OUTPUT1 = "messageChannel1";
-    String OUTPUT2 = "messageChannel2";
+    String OUTPUT1 = "output1";
+    String OUTPUT2 = "output2";
 
     @Output(OUTPUT1)
     MessageChannel create1();

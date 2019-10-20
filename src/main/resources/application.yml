@@ -7,15 +7,17 @@ spring:
   cloud:
     stream:
       bindings:
-        messageChannel:
-          destination: message-channel
-          group: testowa-numero-1
-        messageChannel2:
-          destination: message-channel
+# producers
+        output1: # namiar z MessageSource.java - nazwa w kodzie na Source'a
+          destination: message-channel1 # nazwa exchange na RabbitMQ
+          group: testowa-numero-1 # nazwa queue na RabbitMQ
+        output2:
+          destination: message-channel2
           group: testowa-numero-2
-        input:
-          destination: message-channel
-          group: testowa-numero-1
+# consumers
+        input1: # namiar z MyConsumer.java - nazwa w kodzie na Sink'a
+          destination: message-channel1 # nazwa exchange na RabbitMQ
+          group: testowa-numero-1 # nazwa queue na RabbitMQ
         input2:
-          destination: message-channel
+          destination: message-channel2
           group: testowa-numero-2

@@ -8,11 +8,11 @@ import org.springframework.messaging.SubscribableChannel;
  * Created 10/20/2019
  */
 public interface MyConsumer {
-    String INPUT = "input";
+    String INPUT1 = "input1";
     String INPUT2 = "input2";
 
-    @Input(INPUT)
-    SubscribableChannel input();
+    @Input(INPUT1)
+    SubscribableChannel input1();
 
     @Input(INPUT2)
     SubscribableChannel input2();

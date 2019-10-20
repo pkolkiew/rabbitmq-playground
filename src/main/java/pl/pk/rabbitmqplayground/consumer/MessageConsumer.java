@@ -11,13 +11,16 @@ import pl.pk.rabbitmqplayground.infra.MessageRepository;
 @EnableBinding(MyConsumer.class)
 class MessageConsumer {
 
-    @Autowired
     private MessageRepository messageRepository;
 
-    @StreamListener(target = MyConsumer.INPUT)
+    public MessageConsumer(MessageRepository messageRepository) {
+        this.messageRepository = messageRepository;
+    }
+
+    @StreamListener(target = MyConsumer.INPUT1)
     public void processRegisterEmployees(MsgDto msgDto) {
         messageRepository.save(msgDto);
-        log.info("Msg from '"+MyConsumer.INPUT+": MsgDto.getMessageBody(): " + msgDto.getMessageBody());
+        log.info("Msg from '"+MyConsumer.INPUT1 +": MsgDto.getMessageBody(): " + msgDto.getMessageBody());
     }
 
 }
