@@ -16,3 +16,8 @@ curl -d '{"messageBody":"testowa wiadomosc"}' -H "Content-Type: application/json
 ``
 https://hub.docker.com/_/rabbitmq
 ``
+
+### Helpful link:
+
++ https://www.e4developer.com/2018/02/05/handling-bad-messages-with-rabbitmq-and-spring-cloud-stream/
++ https://www.baeldung.com/spring-cloud-stream
