@@ -1,0 +1,21 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        messageChannel:
+          destination: message-channel
+          group: testowa-numero-1
+        messageChannel2:
+          destination: message-channel
+          group: testowa-numero-2
+        input:
+          destination: message-channel
+          group: testowa-numero-1
+        input2:
+          destination: message-channel
+          group: testowa-numero-2
