@@ -6,6 +6,11 @@ spring:
     password: guest
   cloud:
     stream:
+      rabbit: # tu nasz broker kolejki - rabbit/Kafka itd
+        bindings:
+          input1: # tu nazwa channel'a (tutaj: MyConsumer.java -> INPUT1)
+            consumer:
+              autoBindDlq: true
       bindings:
 # producers
         output1: # namiar z MessageSource.java - nazwa w kodzie na Source'a
