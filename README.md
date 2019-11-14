@@ -21,3 +21,4 @@ https://hub.docker.com/_/rabbitmq
 
 + https://www.e4developer.com/2018/02/05/handling-bad-messages-with-rabbitmq-and-spring-cloud-stream/
 + https://www.baeldung.com/spring-cloud-stream
++ https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-rabbit/2.2.0.M1/spring-cloud-stream-binder-rabbit.html
