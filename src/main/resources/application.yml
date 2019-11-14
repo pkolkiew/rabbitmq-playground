@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: rabbitmq-playground
   rabbitmq:
     host: localhost
     port: 5672
@@ -12,17 +14,59 @@ spring:
             consumer:
               autoBindDlq: true
       bindings:
-# producers
+        # producers
         output1: # namiar z MessageSource.java - nazwa w kodzie na Source'a
           destination: message-channel1 # nazwa exchange na RabbitMQ
           group: testowa-numero-1 # nazwa queue na RabbitMQ
         output2:
           destination: message-channel2
           group: testowa-numero-2
-# consumers
+        # consumers
         input1: # namiar z MyConsumer.java - nazwa w kodzie na Sink'a
           destination: message-channel1 # nazwa exchange na RabbitMQ
           group: testowa-numero-1 # nazwa queue na RabbitMQ
         input2:
           destination: message-channel2
           group: testowa-numero-2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      showDetails: ALWAYS
+
+---
+
+spring:
+  profiles: test-docker-compose
+  rabbitmq:
+    host: rabbitmq
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - 10.0.10
+
+server:
+  port: 8010
+
+management:
+  server:
+    port: 8011
+  info:
+    git:
+      mode: full
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    healthCheckUrlPath: /actuator/health
+    metadataMap:
+      startup: ${random.int}
+    preferIpAddress: true
+  client:
+    registryFetchIntervalSeconds: 10
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/

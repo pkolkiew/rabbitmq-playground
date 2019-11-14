@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: rabbitmq-playground
+  cloud:
+    config:
+      uri: http://localhost:9090
+
+---
+
+spring:
+  profiles: test-docker-compose
+  cloud:
+    config:
+      uri: http://config-server:9090
