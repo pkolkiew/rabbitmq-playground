@@ -50,11 +50,11 @@ spring:
         - 10.0.10
 
 server:
-  port: 8015
+  port: 8010
 
 management:
   server:
-    port: 8016
+    port: 8011
   info:
     git:
       mode: full
