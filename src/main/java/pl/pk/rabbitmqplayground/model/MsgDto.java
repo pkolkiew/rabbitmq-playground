@@ -1,8 +1,11 @@
 package pl.pk.rabbitmqplayground.model;
 
+import lombok.Builder;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Builder
 public class MsgDto {
     private UUID messageId;
     private String messageBody;
