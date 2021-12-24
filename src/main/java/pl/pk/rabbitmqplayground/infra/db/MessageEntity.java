@@ -3,9 +3,7 @@ package pl.pk.rabbitmqplayground.infra.db;
 import lombok.*;
 import pl.pk.rabbitmqplayground.model.MsgDto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Version;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -16,16 +14,16 @@ import java.util.UUID;
  * @author pkolkiew
  * Created 8/9/2020
  */
-@Entity(name = "MESSAGE_ENTITY")
+//@Entity(name = "MESSAGE_ENTITY")
 @Getter
 @Builder
 @EqualsAndHashCode
 class MessageEntity implements Serializable {
-    @Id
+//    @Id
     private UUID uuid;
     private String content;
     private LocalDateTime saveTime;
-    @Version
+//    @Version
     private Timestamp timestamp;
 
     public MessageEntity() {

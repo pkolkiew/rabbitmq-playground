@@ -2,6 +2,8 @@ package pl.pk.rabbitmqplayground.infra;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jdbc.core.convert.JdbcCustomConversions;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import pl.pk.rabbitmqplayground.infra.db.MessageSpringCrudRepository;
 import pl.pk.rabbitmqplayground.infra.db.MessageSpringRepository;
 
@@ -13,8 +15,18 @@ class MessageConfiguration {
     }
 
     @Bean
-    MessageRepository messageSpringRepository(MessageSpringCrudRepository repository) {
-        return new MessageSpringRepository(repository);
+    MessageRepository messageSpringRepository() {
+        return new MessageSpringRepository();
+    }
+
+    @Bean
+    MessageJdbcRepository messageJdbcRepository(NamedParameterJdbcOperations namedParameterJdbcOperations) {
+        return new MessageJdbcSpringRepository(namedParameterJdbcOperations);
+    }
+
+    @Bean
+    JdbcCustomConversions jdbcCustomConversions(){
+        return new JdbcCustomConversions();
     }
 
 }

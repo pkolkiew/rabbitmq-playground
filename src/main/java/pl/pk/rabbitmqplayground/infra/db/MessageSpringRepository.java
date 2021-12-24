@@ -15,31 +15,32 @@ import java.util.UUID;
  */
 public class MessageSpringRepository implements MessageRepository {
 
-    private final MessageSpringCrudRepository repository;
-
-    public MessageSpringRepository(MessageSpringCrudRepository repository) {
-        this.repository = repository;
-    }
+//    private final MessageSpringCrudRepository repository;
+//
+//    public MessageSpringRepository(MessageSpringCrudRepository repository) {
+//        this.repository = repository;
+//    }
 
     @Override
     public void save(MsgDto msgDto) {
-        MessageEntity entity = MessageEntity.of(msgDto);
-        repository.save(entity);
+//        MessageEntity entity = MessageEntity.of(msgDto);
+//        repository.save(entity);
     }
 
     @Override
     public MsgDto findOne(UUID messageId) {
-        Optional<MessageEntity> entityOptional = repository.findById(messageId);
-        if(entityOptional.isPresent())
-            return MessageEntity.of(entityOptional.get());
+//        Optional<MessageEntity> entityOptional = repository.findById(messageId);
+//        if(entityOptional.isPresent())
+//            return MessageEntity.of(entityOptional.get());
         return null;
     }
 
     @Override
     public List<MsgDto> findAll() {
-        Iterable<MessageEntity> entities = repository.findAll();
-        List<MsgDto> resultDtos = new ArrayList<>();
-        entities.forEach(entity -> resultDtos.add(MessageEntity.of(entity)));
-        return resultDtos;
+//        Iterable<MessageEntity> entities = repository.findAll();
+//        List<MsgDto> resultDtos = new ArrayList<>();
+//        entities.forEach(entity -> resultDtos.add(MessageEntity.of(entity)));
+//        return resultDtos;
+        return null;
     }
 }

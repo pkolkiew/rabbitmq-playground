@@ -28,6 +28,8 @@ spring:
         input2:
           destination: message-channel2
           group: testowa-numero-2
+  main:
+    allow-bean-definition-overriding: true
 
 management:
   endpoints:
@@ -76,12 +78,34 @@ eureka:
 
 spring:
   profiles: postgres
+#   jpa:
+#     hibernate:
+#       ddl-auto: update
+#     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+db:
+  driver-class-name: org.postgresql.Driver
+  username: postgres
+  password: postgres
+  url: jdbc:postgresql://localhost:5432/postgres
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core: TRACE
+
+---
+
+spring:
+  profiles: postgres-local
   jpa:
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
     url: jdbc:postgresql://localhost:5432/postgres
-
